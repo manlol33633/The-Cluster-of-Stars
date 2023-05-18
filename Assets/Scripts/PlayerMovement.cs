@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Space) && isGrounded) {
-            rb.AddForce(transform.up * 20, ForceMode.Impulse    );
+            rb.AddForce(transform.up * 20, ForceMode.Impulse);
         }
 
         transform.Rotate(0, horizontalInput, 0);
