@@ -39,12 +39,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (!isMaxSpeed) {
-            rb.AddForce(transform.forward * verticalInput * speed, ForceMode.Acceleration);
-        }
+        if (!Teleporter.isTeleporting) {
+            if (!isMaxSpeed) {
+                rb.AddForce(transform.forward * verticalInput * speed, ForceMode.Acceleration);
+            }
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded) {
-            rb.AddForce(transform.up * 20, ForceMode.Impulse);
+            if (Input.GetKey(KeyCode.Space) && isGrounded) {
+                rb.AddForce(transform.up * 20, ForceMode.Impulse);
+            }
         }
 
         transform.Rotate(0, horizontalInput, 0);
